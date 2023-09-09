@@ -1,0 +1,24 @@
+version: '3.6'
+
+networks:
+  dev-network:
+    driver: bridge
+
+services:
+  db_todos:
+    image: db_todos
+    container_name: db_todos
+    restart: always
+    ports:
+      - "5431:5431"
+    volumes:
+      - db_todos:/var/lib/postgres/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      POSTGRES_PASSWORD: goAPIwithVIPERandCHI
+    networks:
+      - dev-network
+    command: -p 5431
+
+volumes:
+  db_todos:

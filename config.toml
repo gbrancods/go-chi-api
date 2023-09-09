@@ -1,0 +1,9 @@
+[api]
+port = "9000"
+
+[database]
+port = "5431"
+host = "localhost"
+user = "postgres"
+pass = "goAPIwithVIPERandCHI"
+name = "postgres"
